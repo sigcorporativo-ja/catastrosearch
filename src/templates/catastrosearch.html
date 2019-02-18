@@ -1,44 +1,50 @@
 <div class="m-control m-catastrosearch-container">
     <!-- TITLE -->
-    <div class="title">Búsqueda catastral </div>
+    <div class="title">Búsqueda catastral</div>
 
+    <input id="tab1" class="tabs" data-tab="referencia" type="radio" name="tabs-catastro" checked>
+    <label for="tab1">Referencia</label>
+
+    <input id="tab2" class="tabs" data-tab="pol_par" type="radio" name="tabs-catastro">
+    <label for="tab2">Polígono/Parcela</label>
+    <div class="tabs-border"></div>
     <!-- FORM -->
-    <div class="form catastro">
-       
-            <!-- Provincia -->
-            <div class="province">
-                <label>Provincia</label>
-                <select name="provincelist">
-                    <option value="">Provincia...</option>
-                    {{#each provincias}}
-                    <option value="{{this}}">{{this}}</option>
-                    {{/each}}
-                </select>
-            </div>
-            <!-- Municipio -->
-            <div class="municipality">
-                <label>Municipio</label>
-                <select name="municipalitylist">
-                    <option value="">Municipio...</option>
-                </select>
-            </div>
-            <!-- Poligono -->
-            <div class="polygon">
-                <label>Polígono</label>
-                <input type="number">
-            </div>
-            <!-- Parcela -->
-            <div class="parcel">
-                <label>Parcela</label>
-                <input type="number">
-            </div>
-        
-       
-            <div class="refcatastral">
-                <label>Referencia Catastral</label>
-                <input type="text">
-            </div>
-        
+    <div id="content1" class="form catastro">
+        <!-- Referencia Catastral -->
+        <div class="reference">
+            <label>Referencia Catastral</label>
+            <input type="text" maxlength="20">
+        </div>
+    </div>
+    <!-- FORM -->
+    <div id="content2" class="form catastro">
+        <!-- Provincia -->
+        <div class="province">
+            <label>Provincia</label>
+            <select name="provincelist">
+                <option value="">Provincia...</option>
+                {{#each provincias}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <!-- Municipio -->
+        <div class="municipality">
+            <label>Municipio</label>
+            <select name="municipalitylist">
+                <option value="">Municipio...</option>
+            </select>
+        </div>
+        <!-- Poligono -->
+        <div class="polygon">
+            <label>Polígono</label>
+            <input type="number">
+        </div>
+        <!-- Parcela -->
+        <div class="parcel">
+            <label>Parcela</label>
+            <input type="number">
+        </div>
     </div>
     <!-- buttons -->
     <div class="button">

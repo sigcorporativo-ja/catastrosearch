@@ -20,6 +20,45 @@
     font-size: 15px;
 }
 
+/****************************
+      CATASTRO TABS
+ ****************************/
+
+.m-catastrosearch-container>div.tabs-border {
+    border-bottom: 1px solid #ddd;
+}
+
+.m-catastrosearch-container input.tabs {
+    display: none;
+}
+
+.m-catastrosearch-container input.tabs+label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 10px 10px;
+    font-weight: 600;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent;
+}
+
+.m-catastrosearch-container input.tabs+label:hover {
+    color: #888;
+    cursor: pointer;
+}
+
+.m-catastrosearch-container input.tabs:checked+label {
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 2px solid #FF9800;
+    border-bottom: 1px solid #fff;
+}
+
+.m-catastrosearch-container>#tab1:checked~#content1,
+.m-catastrosearch-container>#tab2:checked~#content2 {
+    display: block;
+}
+
 /***************************
       catastrosearch FORMS
  ****************************/
@@ -29,16 +68,18 @@
 .m-catastrosearch-container>div.form {
     width: 90%;
     margin: 10px auto;
+    display: none;
 }
 
 .m-catastrosearch-container>div.form input[type="number"],
-                            div.form input[type="text"] {
+.m-catastrosearch-container>div.form input[type="text"] {
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin: 0px;
     height: 20px;
-    padding: 0!important;
+    padding: 0px;
+    color: initial;
 }
 
 .m-catastrosearch-container>div.form>div.name>input:disabled {
