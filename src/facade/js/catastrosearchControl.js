@@ -212,8 +212,9 @@ export class CatastroSearchControl extends M.Control {
       if (error.length) {
         M.dialog.error(error[0].childNodes[0].nodeValue);
       } else {
-        let xCoord = xmlDoc.getElementsByTagName("xcen")[0].childNodes[0].nodeValue;
-        let yCoord = xmlDoc.getElementsByTagName("ycen")[0].childNodes[0].nodeValue;
+        //JGL: ol>5 ya no se traga string en las coordenadas
+        let xCoord = parseFloat(xmlDoc.getElementsByTagName("xcen")[0].childNodes[0].nodeValue);
+        let yCoord = parseFloat(xmlDoc.getElementsByTagName("ycen")[0].childNodes[0].nodeValue);
         // Elimino todas las búsquedas anteriores, evitando que se reinicie el componente
         this.getImpl().clearCoordinatesLayer();
         // Convierto la latitud y longitud de la proyección seleccionada a la proyección del mapa y la annado al la capa de coordenadas
