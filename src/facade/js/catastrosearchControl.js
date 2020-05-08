@@ -168,14 +168,14 @@ export class CatastroSearchControl extends M.Control {
       // Elimino todas las opciones y creo la básica
       //JGL: el length = 0 puede dar problemas en algunos navegadores
       this.selectMunicipality_.innerHTML = null;
-      this.createMunicipalityOption_("Municipio...", "");
+      this.createMunicipalityOption("Municipio...", "");
       if (error.length) {
         M.dialog.error("Error al consultar al catastro: " + error[0].childNodes[0].nodeValue);
       } else {
         let municipios = xmlDoc.getElementsByTagName("nm");
         for (let i = 0; i < municipios.length; i++) {
           let name = municipios[i].childNodes[0].nodeValue;
-          this.createMunicipalityOption_(name, name);
+          this.createMunicipalityOption(name, name);
         }
       }
     });
@@ -188,7 +188,7 @@ export class CatastroSearchControl extends M.Control {
    * @param {any} value
    * @memberof CatastroSearchControl
    */
-  createMunicipalityOption_(name, value) {
+  createMunicipalityOption(name, value) {
     let opt = document.createElement('option');
     opt.value = value;
     opt.innerHTML = name;
