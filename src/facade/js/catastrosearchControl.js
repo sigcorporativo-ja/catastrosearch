@@ -1,8 +1,11 @@
-import namespace from 'mapea-util/decorator';
-import CatastroSearchImplControl from 'impl/catastrosearchControl';
+/**
+ * @module M/control/CatastroSearchControl
+ */
 
-@namespace("M.control")
-export class CatastroSearchControl extends M.Control {
+import CatastroSearchImplControl from 'impl/catastrosearchControl';
+import template from 'templates/catastrosearch';
+
+export default class CatastroSearchControl extends M.Control {
 
   /**
      * @classdesc
@@ -15,11 +18,11 @@ export class CatastroSearchControl extends M.Control {
      */
   constructor () {
     // 1. checks if the implementation can create PluginControl
-    if (M.utils.isUndefined(M.impl.control.CatastroSearchControl)) {
+    if (M.utils.isUndefined(CatastroSearchImplControl)) {
       M.exception('La implementación usada no puede crear controles CatastroSearchControl');
     }
     // 2. implementation of this control
-    let impl = new M.impl.control.CatastroSearchControl();
+    let impl = new CatastroSearchImplControl();
     super(impl, "CatastroSearch");
 
     // Inputs tabs
@@ -96,13 +99,33 @@ export class CatastroSearchControl extends M.Control {
    * @api stable
    */
   createView(map) {
+    if (!M.template.compileSync) { // JGL: retrocompatibilidad Mapea4
+      M.template.compileSync = (string, options) => {
+        let templateCompiled;
+        let templateVars = {};
+        let parseToHtml;
+        if (!M.utils.isUndefined(options)) {
+          templateVars = M.utils.extends(templateVars, options.vars);
+          parseToHtml = options.parseToHtml;
+        }
+        const templateFn = Handlebars.compile(string);
+        const htmlText = templateFn(templateVars);
+        if (parseToHtml !== false) {
+          templateCompiled = M.utils.stringToHtml(htmlText);
+        } else {
+          templateCompiled = htmlText;
+        }
+        return templateCompiled;
+      };
+    }
+    
     return new Promise((success, fail) => {
-      M.template.compile('catastrosearch.html', { vars: { provincias: this.provincias_ } }).then((html) => {
-        //Establecer eventos
-        this.addEvents(html);
-        success(html);
-      });
+      const html = M.template.compileSync(template, { vars: { provincias: this.provincias_ }});
+      // Añadir código dependiente del DOM
+      this.addEvents(html);
+      success(html);
     });
+    
   }
 
   /**

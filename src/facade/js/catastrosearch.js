@@ -1,9 +1,11 @@
-import namespace from 'mapea-util/decorator';
+/**
+ * @module M/plugin/CatastroSearch
+ */
 import CatastroSearchControl from './catastrosearchControl.js';
-import css from 'assets/css/catastrosearch.css';
+import 'assets/css/catastrosearch.css';
 
-@namespace("M.plugin")
-class CatastroSearch extends M.Plugin {
+
+export default class CatastroSearch extends M.Plugin {
 
   /**
     * @classdesc
@@ -73,7 +75,7 @@ class CatastroSearch extends M.Plugin {
   addTo(map) {
     this.map_ = map;
 
-    this.control_ = new M.control.CatastroSearchControl();
+    this.control_ = new CatastroSearchControl();
     this.panel_ = new M.ui.Panel('catastrosearch', {
       'collapsible': true,
       'className': 'm-catastrosearch',

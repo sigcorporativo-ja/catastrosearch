@@ -1,7 +1,7 @@
-import namespace from 'mapea-util/decorator';
-
-@namespace("M.impl.control")
-export class CatastroSearchControl extends M.impl.Control {
+/**
+ * @module M/impl/control/CatastroSearchControl
+ */
+export default class CatastroSearchControl extends M.impl.Control {
   /**
    * @classdesc
    * Main constructor of the CatastroSearchControl.
