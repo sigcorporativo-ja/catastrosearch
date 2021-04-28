@@ -1,23 +1,27 @@
 {
    "url": {
-      "name": "geosearch",
-      "separator": "*"
+     "name": "CatastroSearch",
+     "separator": "*"
    },
-   "constructor": "M.plugin.Geosearch",
-   "parameters": [{
-      "type": "object",
-      "properties": [{
-         "type": "simple",
-         "name": "url",
-         "position": 0
-      }, {
-         "type": "simple",
-         "name": "core",
-         "position": 1
-      }, {
-         "type": "simple",
-         "name": "handler",
-         "position": 2
-      }]
-   }]
-}
+   "constructor": "M.plugin.CatastroSearch",
+   "parameters": [],
+   "files": {
+     "ol": {
+       "scripts": ["catastrosearch.ol.min.js"],
+       "styles": ["catastrosearch.ol.min.css"]
+     }
+   },
+   "metadata": {
+     "name": "CatastroSearch",
+     "description": "Búsqueda catastral",
+     "text": "Permite realizar búsquedas de elementos catastrales, haciendo uso de los servicios web de Catastro",
+     "version": "1.0.1",
+     "date": "Abril, 2021",
+     "author": "Instituto de Estadística y Cartografía",
+     "org": "Consejería de Transformación Económica, Industria, Conocimiento y Universidades",
+     "tags": "mapea,plugin",
+     "icon": "",
+     "centralized": true,
+     "compatibility":["5","6"]
+   }
+ }
