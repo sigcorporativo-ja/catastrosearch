@@ -4,7 +4,7 @@
      "separator": "*"
    },
    "constructor": "M.plugin.CatastroSearch",
-   "parameters": [],
+   "parameters": [{}],
    "files": {
      "ol": {
        "scripts": ["catastrosearch.ol.min.js"],
@@ -15,8 +15,8 @@
      "name": "CatastroSearch",
      "description": "Búsqueda catastral",
      "text": "Permite realizar búsquedas de elementos catastrales, haciendo uso de los servicios web de Catastro",
-     "version": "1.0.1",
-     "date": "Abril, 2021",
+     "version": "1.0.2",
+     "date": "Marzo, 2023",
      "author": "Instituto de Estadística y Cartografía",
      "org": "Consejería de Transformación Económica, Industria, Conocimiento y Universidades",
      "tags": "mapea,plugin",
