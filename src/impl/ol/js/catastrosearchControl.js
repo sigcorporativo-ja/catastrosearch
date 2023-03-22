@@ -33,12 +33,7 @@ export default class CatastroSearchControl extends M.impl.Control {
     // Annadimos la capa vectorial al mapa
     map.addLayers(this.layer_);
 
-    var olMap = map.getMapImpl();
-    ol.control.Control.call(this, {
-      'element': html,
-      'target': null
-    });
-    olMap.addControl(this);
+    super.addTo(map, html);
   }
 
   /**

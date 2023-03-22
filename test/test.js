@@ -4,6 +4,6 @@ const map = M.map({
   container: 'mapjs',
 });
 
-const mp = new CatastroSearch();
+const mp = new CatastroSearch({});
 
 map.addPlugin(mp);
