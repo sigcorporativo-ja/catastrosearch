@@ -273,4 +273,16 @@ export default class CatastroSearchControl extends M.Control {
     });
   }
 
+  /**
+   * This function compares controls
+   *
+   * @public
+   * @function
+   * @param {M.Control} control to compare
+   * @api stable
+   */
+  equals(control) {
+    return control instanceof CatastroSearchControl;
+  }
+
 }
