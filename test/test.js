@@ -7,3 +7,5 @@ const map = M.map({
 const mp = new CatastroSearch({});
 
 map.addPlugin(mp);
+
+window.mp = mp;
